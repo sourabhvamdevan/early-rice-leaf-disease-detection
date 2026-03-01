@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  rice-disease-detector:
+    build: .
+    image: rice-disease-detector:latest
+    container_name: rice_disease_app
+    ports:
+      - "8501:8501"
+    volumes:
+   
+      - ./models:/app/models
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
